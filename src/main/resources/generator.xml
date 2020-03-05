@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="D:\mysql-connector-java-5.1.0-bin.jar"/>
+
+    <context id="Mysql2Tables" targetRuntime="MyBatis3">
+
+        <!-- 是否去除注释,true表示是,false否 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"></property>
+            <property name="suppressAllComments" value="true"></property>
+        </commentGenerator>
+
+        <!-- 1.连接数据库信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/lethouse"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 2.实体类的生成配置 targetPackage表示目标文件夹
+    targetProject表示当前目标文件夹所放置的目标地址
+    -->
+        <javaModelGenerator targetPackage="com.team.house.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 3.sql映射文件生成配置 -->
+        <sqlMapGenerator targetPackage="com.team.house.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 4.mapper接口配置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.team.house.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 5.数据库表和实体类映射 -->
+        <table tableName="district" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        </table>
+        <table tableName="house" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        </table>
+        <table tableName="street" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        </table>
+        <table tableName="type" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        </table>
+        <table tableName="users" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        </table>
+
+
+    </context>
+</generatorConfiguration>
