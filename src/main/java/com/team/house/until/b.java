@@ -1,4 +1,4 @@
 package com.team.house.until;
 
-public class a {
+public class b {
 }
